@@ -1,70 +1,65 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu App de Tarefas</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <div class="header-content">
-            <h1>✅ Minhas Tarefas</h1>
-            <button id="themeToggle" class="theme-button">
-                <span class="icon">🌙</span>
-            </button>
-        </div>
-    </header>
+<!DOCTYPE html> <!-- Declara que o documento usa HTML5 -->
+<html lang="pt-br"> <!-- Elemento raiz; define o idioma da página como português do Brasil -->
+<head> <!-- Início da seção de metadados (não visível diretamente) -->
+    <meta charset="UTF-8"> <!-- Define o conjunto de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Torna a página responsiva em dispositivos móveis -->
+    <title>Meu App de Tarefas</title> <!-- Texto exibido na aba do navegador -->
+    <link rel="stylesheet" href="styles.css"> <!-- Vincula o arquivo de estilos externo -->
+</head> <!-- Fim da seção de metadados -->
+<body> <!-- Início do corpo da página (conteúdo visível) -->
+    <header> <!-- Cabeçalho da página, normalmente contém título e controles principais -->
+        <div class="header-content"> <!-- Container para organizar o conteúdo do cabeçalho -->
+            <h1>✅ Minhas Tarefas</h1> <!-- Título principal exibido no topo da aplicação -->
+            <button id="themeToggle" class="theme-button"> <!-- Botão que alterna o tema (claro/escuro) -->
+                <span class="icon">🌙</span> <!-- Ícone dentro do botão de alternância de tema -->
+            </button> <!-- Fecha o botão de alternância de tema -->
+        </div> <!-- Fecha o container do cabeçalho -->
+    </header> <!-- Fecha o cabeçalho -->
 
-    <main>
-        <div class="container">
-            <!-- Input para adicionar tarefa -->
-            <div class="input-section">
-                <div class="input-group">
-                    <input 
-                        type="text" 
-                        id="taskInput" 
-                        placeholder="Adicione uma nova tarefa..."
-                        class="task-input"
-                    >
-                    <button id="addTaskBtn" class="btn-primary">
-                        <span>➕</span> Adicionar
-                    </button>
-                </div>
-            </div>
+    <main> <!-- Conteúdo principal da aplicação, onde a maior parte da UI fica -->
+        <div class="container"> <!-- Container que centraliza e limita a largura do conteúdo -->
+            <!-- Marca a seção de input onde o usuário adiciona tarefas -->
+            <div class="input-section"> <!-- Seção que contém o campo de entrada e botão de adicionar -->
+                <div class="input-group"> <!-- Agrupa o input e o botão para alinhamento -->
+                    <input type="text" id="taskInput" placeholder="Adicione uma nova tarefa..." class="task-input"> <!-- Campo de texto para digitar a nova tarefa -->
+                    <button id="addTaskBtn" class="btn-primary"> <!-- Botão que, ao ser clicado, adiciona a tarefa ao sistema -->
+                        <span>➕</span> Adicionar <!-- Ícone e rótulo do botão Adicionar -->
+                    </button> <!-- Fecha o botão de adicionar -->
+                </div> <!-- Fecha o grupo de input -->
+            </div> <!-- Fecha a seção de input -->
 
-            <!-- Filtros -->
-            <div class="filters">
-                <button class="filter-btn active" data-filter="all">Todas</button>
-                <button class="filter-btn" data-filter="active">Ativas</button>
-                <button class="filter-btn" data-filter="completed">Concluídas</button>
-            </div>
+            <!-- Botões que permitem filtrar a lista de tarefas por estado -->
+            <div class="filters"> <!-- Container dos botões de filtro (Todas/Ativas/Concluídas) -->
+                <button class="filter-btn active" data-filter="all">Todas</button> <!-- Mostra todas as tarefas -->
+                <button class="filter-btn" data-filter="active">Ativas</button> <!-- Mostra apenas tarefas ativas -->
+                <button class="filter-btn" data-filter="completed">Concluídas</button> <!-- Mostra apenas tarefas concluídas -->
+            </div> <!-- Fecha os filtros -->
 
-            <!-- Lista de tarefas -->
-            <div class="tasks-container">
-                <div id="tasksList" class="tasks-list">
-                    <!-- Tarefas serão adicionadas aqui pelo JavaScript -->
-                </div>
+            <!-- Área onde as tarefas serão listadas dinamicamente pelo JavaScript -->
+            <div class="tasks-container"> <!-- Container que engloba a lista e o estado vazio -->
+                <div id="tasksList" class="tasks-list"> <!-- Elemento que receberá os itens de tarefa via DOM -->
+                    <!-- Espaço reservado; o JavaScript insere os elementos de tarefa aqui -->
+                </div> <!-- Fecha a lista de tarefas -->
                 
-                <!-- Mensagem quando vazio -->
-                <div id="emptyState" class="empty-state">
-                    <p>📝 Nenhuma tarefa por aqui!</p>
-                    <small>Adicione uma tarefa para começar</small>
-                </div>
-            </div>
+                <!-- Exibe uma mensagem amigável quando não há tarefas cadastradas -->
+                <div id="emptyState" class="empty-state"> <!-- Estado vazio com mensagem e sugestão -->
+                    <p>📝 Nenhuma tarefa por aqui!</p> <!-- Mensagem principal do estado vazio -->
+                    <small>Adicione uma tarefa para começar</small> <!-- Texto auxiliar incentivando ação do usuário -->
+                </div> <!-- Fecha o estado vazio -->
+            </div> <!-- Fecha o container de tarefas -->
 
-            <!-- Resumo de tarefas -->
-            <div class="tasks-summary">
-                <span id="taskCount">0 tarefas</span>
-                <button id="clearCompleted" class="btn-danger">🗑️ Limpar Concluídas</button>
-            </div>
-        </div>
-    </main>
+            <!-- Linha de resumo com contador e ação para limpar tarefas concluídas -->
+            <div class="tasks-summary"> <!-- Área que mostra o número de tarefas e ações relacionadas -->
+                <span id="taskCount">0 tarefas</span> <!-- Exibe a contagem atual de tarefas -->
+                <button id="clearCompleted" class="btn-danger">🗑️ Limpar Concluídas</button> <!-- Botão para remover tarefas concluídas -->
+            </div> <!-- Fecha o resumo de tarefas -->
+        </div> <!-- Fecha o container principal -->
+    </main> <!-- Fecha o conteúdo principal -->
 
-    <footer>
-        <p>💾 Suas tarefas são salvas automaticamente com cookies</p>
-    </footer>
+    <footer> <!-- Rodapé do site com informações adicionais -->
+        <p>💾 Suas tarefas são salvas automaticamente com cookies</p> <!-- Indica que os dados são persistidos em cookies -->
+    </footer> <!-- Fecha o rodapé -->
 
-    <script src="script.js"></script>
-</body>
-</html>
+    <script src="script.js"></script> <!-- Importa o script principal que implementa a lógica da aplicação -->
+</body> <!-- Fecha o corpo da página -->
+</html> <!-- Fecha o documento HTML -->
